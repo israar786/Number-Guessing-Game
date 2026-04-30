@@ -1,0 +1,33 @@
+
+#include "iostream"
+using namespace std;
+
+int main() {
+ 
+ int i = 5;
+ int x; 
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Type your guess";
+ cin >> x;
+ 
+ 
+ while (x != i) {
+   
+   cout << "Try again\n";
+   cin >> x;
+   
+   if (x > i) {
+   
+   cout << "Too High\n";
+
+ } 
+   else if (x < i) {
+    
+   cout << "Too Low\n";
+ }
+ }
+  
+    cout << "correct\n";
+  
+ return 0;
+}
