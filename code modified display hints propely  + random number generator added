@@ -1,0 +1,40 @@
+
+#include "iostream"
+#include "cstdlib"
+#include "ctime"
+using namespace std;
+
+int main() {
+ 
+ srand(time(0));
+ int i = rand() %100 + 1;
+ int x; 
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Type your guess";
+ cin >> x;
+ 
+ 
+ while (x != i) {
+   
+   if (x > i) {
+   
+   cout << "Too High\n";
+   cout << "Try again\n";
+ } 
+   else if (x < i) {
+    
+   cout << "Too Low\n";
+   cout << "Try again\n";
+ }
+   else {
+     
+
+   }
+   
+   cin >> x;
+   
+ }
+     
+ cout << "correct\n";
+ return 0;
+}
