@@ -1,0 +1,22 @@
+#include "iostream"
+using namespace std;
+
+int main() {
+ 
+ int i = 5;
+ int x; 
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Type your guess";
+ cin >> x;
+  
+ if (i == x) {
+   
+   cout << "correct\n";
+ } 
+  else {
+    
+   cout << "incorrect, try again\n";
+
+ }
+  return 0;
+}
