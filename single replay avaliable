@@ -1,0 +1,82 @@
+#include "iostream"
+#include "cstdlib"
+#include "ctime"
+using namespace std;
+
+void game() {
+
+    srand(time(0));
+ int i = rand() %100 + 1; //set counter limit, currently 1-100
+ int x;
+ int attempts = 0;
+ int a;
+ int y;
+
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Type your guess\n";
+
+ cout <<"number =" << i << " \n";
+
+ cin >> x;
+
+ attempts++;
+
+ while (x != i) {
+
+
+   if (x > i) {
+
+   cout << "Too High\n";
+
+ }
+   else if (x < i) {
+
+   cout << "Too Low\n";
+
+ }
+
+   cout << "Try again\n";
+   cin >> x;
+
+   attempts++;
+ }
+
+ cout << "correct\n";
+ cout << "number of attempts = " <<attempts<< "\n";
+
+ cout << "To play again type in;\n";
+ cout << "y for yes\n";
+ cout << "or\n";
+ cout << "n for no\n";
+
+}
+
+int main() {
+
+ game();
+
+ char a;
+
+ cin >> a;
+
+ if (a == 'y') {     //== compares values, 'y' is a character literal
+
+     game();
+ }
+
+ system("pause");
+
+ return 0;
+}
+
+
+
+/*
+time(0) → changing number (based on clock)
+       ↓
+srand() → sets randomness starting point
+       ↓
+rand() → generates numbers
+       ↓
+% 100 + 1 → keeps it in range 1–100
+*/
