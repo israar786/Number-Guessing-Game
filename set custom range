@@ -1,0 +1,127 @@
+#include "iostream"
+#include "cstdlib"
+#include "ctime"
+using namespace std;
+
+void home() {
+
+ cout << "Welcome to the number guessing game\n";
+ cout << "Play\n";
+ cout << "Settings\n";
+
+}
+
+void game() {
+
+ int min;
+ int max;
+ int x;
+ int attempts = 0;
+ int a;
+ int y;
+
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Set range, type;\n";
+
+ cout << " min num\n";
+while (!(cin >> min)) {
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+ cout << "max num\n";
+while (!(cin >> max)) {
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+
+ int i = rand() % max + min; //set counter limit, currently 1-100
+
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Type your guess\n";
+
+ cout <<"number =" << i << " \n";
+
+while (!(cin >> x)) {
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+
+
+ attempts++;
+
+ while (x != i) {
+
+
+
+
+   if (x > i) {
+
+   cout << "Too High\n";
+
+ }
+   else if (x < i) {
+
+   cout << "Too Low\n";
+   cout << "Try again\n";
+
+ }
+
+
+       while (!(cin >> x)) {
+
+        cout << "Invalid input. Please type a number.\n";
+
+        cin.clear();
+        cin.ignore(1000, '\n');
+    }
+
+
+   attempts++;
+ }
+
+ cout << "correct\n";
+ cout << "number of attempts = " <<attempts<< "\n";
+
+
+}
+
+int main() {
+
+ srand(time(0));
+
+ char a = 'y';
+
+ while (a == 'y') {     //== compares values, 'y' is a character literal
+
+     game();
+
+do {
+
+     cout << "play again; (y/n)\n";
+
+     cin >> a;
+
+ if (a != 'y' && a != 'n') {
+
+    cout << "invalid input please type y for yes and n for no\n";
+
+ }
+ } while (a != 'y' && a != 'n');
+
+
+ }
+ cout << "Thanks for playing!\n";
+ system("pause");
+
+ return 0;
+}
+
