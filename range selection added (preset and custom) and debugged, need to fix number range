@@ -1,0 +1,230 @@
+#include "iostream"
+#include "cstdlib"
+#include "ctime"
+using namespace std;
+
+void home() {
+
+ cout << "Welcome to the number guessing game\n";
+ cout << "Play\n";
+ cout << "Settings\n";
+
+}
+
+int rangetype () {
+
+ int b;
+
+ do {
+
+ cout << "Set range\n";
+ cout << "1-default\n2-custom\n";
+
+ while (!(cin >> b)) {
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+
+
+ if (b != 1 && b != 2) {
+
+    cout << "invalid input\n";
+
+ }
+ } while (b != 1 && b != 2);
+
+ return b;
+}
+
+int ddefault() {
+
+     char c;
+     int i;
+
+        cout << "Select range\n a.1->10 b.1->100 c.0->1000\n type corresponding letter to set range\n";
+
+ do {
+     cin >> c;
+
+    if (c != 'a' && c != 'b' && c != 'c') {
+
+    cout << "invalid input please a, b, or c\n";
+
+ }
+ } while (c != 'a' && c != 'b' && c != 'c');
+
+
+   if (c == 'a')  {
+
+      i = rand() % 10 + 1; //set counter limit, currently 1-10
+
+   }
+   else if (c == 'b')  {
+
+      i = rand() % 100 + 1; //set counter limit, currently 1-100
+
+   }
+   else if (c == 'c')  {
+
+      i = rand() % 1000 + 1; //set counter limit, currently 1-1000
+
+   }
+
+return i;
+}
+
+int custom() {
+
+    cout << "Type numbers to set custom range for number to be selected from\n";
+
+     int min;
+     int max;
+
+     cout << " min num\n";
+while (!(cin >> min)) {
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+ cout << "max num\n";
+while (!(cin >> max)) {
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+
+ int i = rand() % max + min; //set counter limit, currently 1-100
+
+return i;
+}
+
+int value () {
+
+ int i;
+ int r = rangetype();
+
+ if (r == 1) {
+
+    int i = ddefault();
+ }
+ else if (r == 2) {
+
+    int i = custom();
+ }
+ return i;
+
+}
+void game() {
+
+
+ int x;
+ int attempts = 0;
+ int a;
+ int y;
+
+ cout << "Welcome to the number guessing game!\n";
+
+ int i = value();
+
+
+ cout << "I'm thinking of a number can you guess it!\n";
+ cout << "Type your guess\n";
+
+ cout <<"number =" << i << " \n";
+while (!(cin >> x)) {
+
+
+    cout << "Invalid input. Please type a number.\n";
+
+    cin.clear();
+    cin.ignore(1000, '\n');
+    }
+
+
+ attempts++;
+
+ while (x != i) {
+
+
+
+
+   if (x > i) {
+
+   cout << "Too High\n";
+
+ }
+   else if (x < i) {
+
+   cout << "Too Low\n";
+   cout << "Try again\n";
+
+ }
+
+
+       while (!(cin >> x)) {
+
+        cout << "Invalid input. Please type a number.\n";
+
+        cin.clear();
+        cin.ignore(1000, '\n');
+    }
+
+
+   attempts++;
+ }
+
+ cout << "correct\n";
+ cout << "number of attempts = " <<attempts<< "\n";
+
+
+}
+
+int main() {
+
+ srand(time(0));
+
+ char a = 'y';
+
+ while (a == 'y') {     //== compares values, 'y' is a character literal
+
+     game();
+
+do {
+
+     cout << "play again; (y/n)\n";
+
+     cin >> a;
+
+ if (a != 'y' && a != 'n') {
+
+    cout << "invalid input please type y for yes and n for no\n";
+
+ }
+ } while (a != 'y' && a != 'n');
+
+
+ }
+ cout << "Thanks for playing!\n";
+ system("pause");
+
+ return 0;
+}
+
+
+
+/*
+time(0) → changing number (based on clock)
+       ↓
+srand() → sets randomness starting point
+       ↓
+rand() → generates numbers
+       ↓
+% 100 + 1 → keeps it in range 1–100
+*/
